@@ -5,19 +5,77 @@
   <meta charset="UTF-8">
   <title>Ahmet Tekeli Randevu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial; padding: 20px; background: #f5f5f5; }
-    .container { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
-    h2 { text-align: center; }
-    label { display: block; margin-top: 10px; }
-    select, input { width: 100%; padding: 8px; margin-top: 5px; }
-    button { margin-top: 20px; width: 100%; padding: 10px; background: #111; color: white; border: none; }
-    .error { color: red; margin-top: 10px; text-align: center; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1c1c1c, #444);
+      margin: 0; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; color: #fff;
+    }
+    .container {
+      background-color: #2c2c2c;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f8d90f;
+    }
+    label {
+      margin-top: 10px;
+      display: block;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      margin-top: 5px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #f8d90f;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button:hover {
+      background: #ffe600;
+    }
+    .error {
+      text-align: center;
+      margin-top: 15px;
+      color: #ff6b6b;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+      color: #bbb;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Ahmet Tekeli Erkek Kuaförü</h2>
+    <div style="text-align:center;"><img src="logo.jpeg" alt="Logo" style="width:120px;height:auto;border-radius:10px;margin-bottom:10px;"></div><h2>Ahmet Tekeli<br>Erkek Kuaförü</h2>
     <form id="randevuForm">
       <label>Ad Soyad</label>
       <input type="text" id="name" required>
@@ -56,6 +114,7 @@
       <div class="error" id="errorMsg"></div>
       <button type="submit">Randevu Al</button>
     </form>
+    <div class="footer">© 2025 Ahmet Tekeli | Randevu Sistemi</div>
   </div>
 
   <script>
