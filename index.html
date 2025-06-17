@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahmet Tekeli Erkek Kuaförü - Randevu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto Slab', serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1588776814546-ec7d04c85d28?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #FFD700;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    input, select {
+      background: #333;
+      color: #FFD700;
+    }
+    button {
+      background: linear-gradient(45deg, #f39c12, #e74c3c);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    #mesaj {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AHMET TEKELİ<br>ERKEK KUAFÖRÜ</h1>
+    <form id="randevuForm">
+      <label>Ad Soyad</label>
+      <input type="text" name="adsoyad" required />
+
+      <label>Telefon</label>
+      <input type="tel" name="telefon" required />
+
+      <label>Tarih</label>
+      <input type="date" name="tarih" required />
+
+      <label>Saat</label>
+      <select name="saat" required>
+        <option value="">Saat Seçiniz</option>
+        <option>09:00</option><option>10:00</option><option>11:00</option>
+        <option>12:00</option><option>13:00</option><option>14:00</option>
+        <option>15:00</option><option>16:00</option><option>17:00</option>
+        <option>18:00</option><option>19:00</option><option>20:00</option>
+      </select>
+
+      <label>Hizmet</label>
+      <select name="hizmet" required>
+        <option value="">Seçiniz</option>
+        <option>Saç Kesimi</option>
+        <option>Sakal Kesimi</option>
+        <option>Saç + Sakal Kesimi</option>
+        <option>Çocuk Saç Kesimi</option>
+      </select>
+
+      <button type="submit">RANDEVU AL</button>
+      <div id="mesaj"></div>
+    </form>
+    <footer>© 2025 Ahmet Tekeli | Randevu Sistemi</footer>
+  </div>
+
+  <script>
+    document.getElementById("randevuForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      fetch("https://script.google.com/macros/s/AKfycbwKni3_TAgf3Ev9lJN0jsW9_H935Lp1x4w-P9lB8VdEOH9pkvNUQYe77CYPssuDg1IV/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.json())
+      .then(response => {
+        const mesaj = document.getElementById("mesaj");
+        if (response.success) {
+          mesaj.textContent = "Randevunuz başarıyla alındı.";
+          mesaj.style.color = "lightgreen";
+          form.reset();
+        } else {
+          mesaj.textContent = response.message || "Bu saat dolu. Lütfen başka bir saat seçin.";
+          mesaj.style.color = "tomato";
+        }
+      })
+      .catch(error => {
+        document.getElementById("mesaj").textContent = "Bir hata oluştu. Lütfen tekrar deneyin.";
+        console.error("Hata:", error);
+      });
+    });
+  </script>
+</body>
+</html>
