@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmet Tekeli | Randevu Sistemi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1 class="baslik">AHMET TEKELİ <br> ERKEK KUAFÖRÜ</h1>
+        <form id="randevuForm">
+            <input type="text" name="name" placeholder="Ad Soyad" required>
+            <input type="tel" name="phone" placeholder="Telefon" required>
+            <input type="date" name="date" required>
+            <select name="time" required>
+                <option value="">Saat Seçin</option>
+                <option>09:00</option><option>10:00</option><option>11:00</option>
+                <option>12:00</option><option>13:00</option><option>14:00</option>
+                <option>15:00</option><option>16:00</option><option>17:00</option>
+                <option>18:00</option><option>19:00</option><option>20:00</option>
+            </select>
+            <select name="service" required>
+                <option value="">Hizmet Seçin</option>
+                <option>Saç Kesimi</option>
+                <option>Sakal Kesimi</option>
+                <option>Saç + Sakal Kesimi</option>
+                <option>Çocuk Saç Kesimi</option>
+            </select>
+            <button type="submit">Randevu Al</button>
+        </form>
+        <div id="mesaj"></div>
+        <footer>© 2025 Ahmet Tekeli | Randevu Sistemi</footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
