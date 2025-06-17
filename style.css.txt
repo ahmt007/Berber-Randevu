@@ -1,0 +1,42 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+.container {
+  background-color: rgba(0, 0, 0, 0.7);
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+}
+.logo {
+  max-width: 100px;
+  margin-bottom: 20px;
+}
+.baslik {
+  font-size: 26px;
+  font-weight: bold;
+  color: #FFD700;
+}
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+}
+button {
+  background-color: #FFD700;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e6c200;
+}
