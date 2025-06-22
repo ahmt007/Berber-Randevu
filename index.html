@@ -1,1 +1,38 @@
-// İçerik: index.html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmet Tekeli Erkek Kuaförü</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="logo-ahmettekeli.png" alt="Logo" class="logo" />
+    <h1>Ahmet Tekeli Erkek Kuaförü</h1>
+    <p class="slogan">Tıraş zamanı, tek tık uzağında</p>
+
+    <form id="randevuForm">
+      <input type="text" name="isim" placeholder="İsim Soyisim" required />
+      <input type="tel" name="telefon" placeholder="Telefon Numarası" required />
+      <input type="date" name="tarih" required />
+      <select name="saat" required>
+        <option value="">Saat Seçin</option>
+        <option value="08:00">08:00</option>
+        <option value="08:30">08:30</option>
+        <option value="09:00">09:00</option>
+        <!-- Diğer saatler buraya -->
+        <option value="19:30">19:30</option>
+        <option value="20:00">20:00</option>
+      </select>
+      <textarea name="not" placeholder="Not (isteğe bağlı)"></textarea>
+      <button type="submit">Randevu Al</button>
+    </form>
+
+    <p class="info">📲 Randevu WhatsApp’a bildirilecek</p>
+    <p class="info">📸 <a href="https://instagram.com/esnafmuhabbeti" target="_blank">@esnafmuhabbeti</a></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
